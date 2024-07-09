@@ -1,41 +1,62 @@
-#include <iostream>
-#include <cmath>
-#include <cstring>
+#include<iostream>
+#include<math.h>
+#include<string.h>
 
 using namespace std;
+//this is to implement the alternative algorithm
 
-// Function to implement the alternative algorithm
-void alternativeF(int arr[], int n) {
-    int temp;
+  void   alternativeF(int arr[], int n){
+    int temp,small,large;
 
-    // Sorting the array in descending order
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] < arr[j]) {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+    cout<<"The original array is : " <<endl;
+    //this is to print to print the original array
+    for(int i=0;i<n;i++){
+        cout<<arr[i] <<endl;
+    }
+
+    //this is to  sort the array
+    for(int i=0; i<n;i++){
+        for(int j=0;j<i+1;j++){
+    if(arr[i]>arr[j]){
+        temp=arr[j];
+        arr[j]=arr[i];
+        arr[i]=temp;
+        
+    }
         }
-    }
 
-    // Printing the sorted array
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << endl;
-    }
 }
 
-int main() {
-    int arr[] = {5, 3, 8, 1, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    //this is to print after sorting
+    cout<<"The sorted array : "<<endl;
+for(int i=0;i<n;i++){
+    cout<<arr[i]<<endl;
+    
+}
 
-    cout << "Original Array:" << endl;
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << endl;
-    }
+// this is to make the alternative algorithm
+cout<<"Alternative algorithm : "<<endl;
+for(int i=0;i<n/2;i++){
+cout<<arr[i]<<endl;
+if(i!=n-1-i){
+    cout<<arr[n-1-i]<<endl;
+}
 
-    cout << "Sorted Array:" << endl;
-    alternativeF(arr, n);
+}
+
+//this is to check if  it the arr is odd
+if(n%2!=0){
+    cout<<arr[n/2]<<endl;
+}
+}
+int main(){
+
+//this is to test if it works
+int numbers[]={23,40,50,120,2,4,8};
+int n=sizeof(numbers)/sizeof(numbers[0]);
+
+//this is to invoke the function
+alternativeF(numbers,n);
 
     return 0;
 }
