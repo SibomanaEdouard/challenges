@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
+        "ABABAB",
         "Chantal",
         "Edouard"
-    ]
+    ],
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
